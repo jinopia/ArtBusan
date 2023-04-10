@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+  <title>Image Generation</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+
+<body>
+  <h3>Generate Image</h3>
+  <form action="/image_page" method="post">
+    프롬프트: <input type="text" name="prompt" placeholder="Enter prompt for image generation"/>
+    대   상: <input type="text" name="object" placeholder="Enter object name for image generation"/>
+    스타일: <input type="text" name="style" placeholder="Enter painter name"/>
+    크기:<input type="text" name="size_string" placeholder="Enter 'big' or 'middel' or 'small'"/>
+    <input type="submit" value="Generate images" />
+  </form>
+  {% if image_urls %}
+  <div class="result"><img src="{{ image_urls[0] }}"></div>
+  <div class="result"><img src="{{ image_urls[1] }}"></div>
+  <div class="result"><img src="{{ image_urls[2] }}"></div>
+  <div class="result"><img src="{{ image_urls[3] }}"></div>
+  {% endif %}
+</body>
